@@ -209,7 +209,7 @@
             this.MaximumSize = new System.Drawing.Size(390, 534);
             this.MinimumSize = new System.Drawing.Size(390, 534);
             this.Name = "frmAgregarArticulo";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Articulo";
             this.Load += new System.EventHandler(this.frmAgregarArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).EndInit();

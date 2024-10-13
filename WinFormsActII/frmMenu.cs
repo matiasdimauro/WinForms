@@ -76,10 +76,6 @@ namespace WinFormsActII
             ventana.Show();
         }
 
-        private void dgvArticulo_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-        }
-
         private void cargar()
         {
             try
@@ -138,18 +134,13 @@ namespace WinFormsActII
             }
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            frmModificarArticulo ventana = new frmModificarArticulo();
-            ventana.Show();
-        }
 
         private void txtFlitrarNombre_TextChanged(object sender, EventArgs e)
         {
             List<Articulo> listaRapida;
             string filtro = txtFlitrarNombre.Text;
 
-            if (filtro.Length >= 1)
+            if (filtro.Length >= 2)
             {
                 listaRapida = lista.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()));
             }
@@ -163,6 +154,45 @@ namespace WinFormsActII
             dgvArticulo.Columns["UrlImagen"].Visible = false;
             dgvArticulo.Columns["Categoria"].Visible = false;
             dgvArticulo.Columns["Marca"].Visible = false;
+        }
+
+        private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvArticulo.CurrentRow != null)
+            {
+                Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+                cargarImagen(seleccionado.UrlImagen);
+            }
+
+        }
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+
+            frmAgregarArticulo modificar = new frmAgregarArticulo(seleccionado);
+            modificar.ShowDialog();
+            cargar();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo seleccionado;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("Eliminar articulo permanentemente?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(respuesta == DialogResult.Yes)
+                {
+                seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+                negocio.eliminar(seleccionado.Id);
+                cargar();
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

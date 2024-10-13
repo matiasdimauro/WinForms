@@ -15,9 +15,16 @@ namespace WinFormsActII
 {
     public partial class frmAgregarArticulo : Form
     {
+        private Articulo articulo = null;
         public frmAgregarArticulo()
         {
             InitializeComponent();
+        }
+
+        public frmAgregarArticulo(Articulo articulo)
+        {
+            InitializeComponent();
+            this.articulo = articulo;
         }
 
         private void cargar()
@@ -46,11 +53,13 @@ namespace WinFormsActII
 
         private void btnTerminar_Click(object sender, EventArgs e)
         {
-            Articulo articulo = new Articulo();
             ArticuloNegocio negocioArticulo = new ArticuloNegocio();
 
             try
             {
+                 if(articulo == null)
+                    articulo = new Articulo();
+
                 articulo.Codigo = txbCodigo.Text;
                 articulo.Nombre = txbNombre.Text;
                 articulo.Descripcion = txbDescripcion.Text;
@@ -59,13 +68,16 @@ namespace WinFormsActII
                 articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
                 articulo.UrlImagen = txbUrlImagen.Text;
 
+                if (articulo.Id != 0)
+                {
+                     negocioArticulo.modificar(articulo);
+                     MessageBox.Show("Articulo modificado");
+                }
+                else
+                {
                 negocioArticulo.agregar(articulo);
                 MessageBox.Show("Articulo agregado");
-                txbCodigo.Text = string.Empty;
-                txbNombre.Text = string.Empty;
-                txbDescripcion.Text = string.Empty;
-                txbPrecio.Text = string.Empty;
-                txbUrlImagen.Text = string.Empty;
+                }
 
             }
             catch (Exception ex)
@@ -94,7 +106,21 @@ namespace WinFormsActII
 
         private void frmAgregarArticulo_Load(object sender, EventArgs e)
         {
-            cargar();
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            try
+            {
+                cargar();
+                if (articulo != null)
+                {
+                    txbCodigo.Text = articulo.Codigo.ToString();
+                    txbNombre.Text = articulo.Nombre;
+                    txbDescripcion.Text = articulo.Descripcion;
+                    txbPrecio.Text = articulo.Precio.ToString();
+                    txbUrlImagen.Text = articulo.UrlImagen;
+                    cargarImagen(articulo.UrlImagen);
+                }
+            }
+            catch (Exception ex) { throw ex; }
         }
     }
 }
