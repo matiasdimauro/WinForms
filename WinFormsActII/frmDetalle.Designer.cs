@@ -37,18 +37,20 @@
             // dgvDetalle
             // 
             this.dgvDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetalle.Location = new System.Drawing.Point(12, 24);
+            this.dgvDetalle.Location = new System.Drawing.Point(12, 12);
             this.dgvDetalle.Name = "dgvDetalle";
-            this.dgvDetalle.Size = new System.Drawing.Size(507, 45);
+            this.dgvDetalle.Size = new System.Drawing.Size(596, 88);
             this.dgvDetalle.TabIndex = 9;
             this.dgvDetalle.UseWaitCursor = true;
             // 
             // pbxDetalle
             // 
-            this.pbxDetalle.Location = new System.Drawing.Point(135, 75);
+            this.pbxDetalle.Location = new System.Drawing.Point(175, 115);
+            this.pbxDetalle.MaximumSize = new System.Drawing.Size(276, 272);
+            this.pbxDetalle.MinimumSize = new System.Drawing.Size(276, 272);
             this.pbxDetalle.Name = "pbxDetalle";
             this.pbxDetalle.Size = new System.Drawing.Size(276, 272);
-            this.pbxDetalle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbxDetalle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxDetalle.TabIndex = 10;
             this.pbxDetalle.TabStop = false;
             this.pbxDetalle.UseWaitCursor = true;
@@ -57,18 +59,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(538, 358);
+            this.ClientSize = new System.Drawing.Size(620, 406);
             this.Controls.Add(this.pbxDetalle);
             this.Controls.Add(this.dgvDetalle);
-            this.MaximumSize = new System.Drawing.Size(554, 397);
             this.MinimumSize = new System.Drawing.Size(554, 397);
             this.Name = "frmDetalle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Detalle de producto";
+            this.Load += new System.EventHandler(this.frmDetalle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDetalle)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

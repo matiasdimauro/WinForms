@@ -61,8 +61,13 @@ namespace WinFormsActII
 
         private void btnDetalle_Click(object sender, EventArgs e)
         {
-            frmDetalle ventana = new frmDetalle();
-            ventana.Show();
+            ArticuloNegocio negocioArticulo = new ArticuloNegocio();
+            Articulo seleccionado;
+
+            seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+
+            frmDetalle ventana = new frmDetalle(seleccionado.Id, seleccionado.UrlImagen);
+            ventana.ShowDialog();
         }
 
         private void pbxArticulo_Click(object sender, EventArgs e)
@@ -192,6 +197,23 @@ namespace WinFormsActII
             catch(Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                string campo = cboCampo.SelectedItem.ToString();
+                string criterio = cboCriterio.SelectedItem.ToString();
+                string filtro = txtFiltro.Text;
+                dgvArticulo.DataSource = negocio.filtrar(campo, criterio, filtro);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
             }
         }
     }
