@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using dominio;
+using System.Data.SqlClient;
 using static System.Net.Mime.MediaTypeNames;
+using dominio;
 
 namespace negocio
 {
@@ -91,5 +92,66 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void agregar(Articulo articulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("insert into ARTICULOS (Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria) values ('" + articulo.Codigo + "', '" + articulo.Nombre + "','" + articulo.Descripcion + "'," + articulo.Precio + ", @IdMarca, @IdCategoria)");
+                datos.setearParametro("@IdMarca", articulo.Marca.Id);
+                datos.setearParametro("@Idcategoria", articulo.Categoria.IdCategoria);
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+            Articulo aux = new Articulo();
+            try
+            {
+                datos.setearConsulta("select Id From ARTICULOS A WHERE Codigo = '" + articulo.Codigo + "'");
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    aux.Id = (int)datos.Lector["Id"];
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+            try
+            {
+                datos.setearConsulta("insert into IMAGENES (IdArticulo, ImagenUrl) values (@IdArticulo, @ImagenUrl)");
+                datos.setearParametro("@IdArticulo", aux.Id);
+                datos.setearParametro("@ImagenUrl", articulo.UrlImagen);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+
+            }
+        }
+
     }
 }

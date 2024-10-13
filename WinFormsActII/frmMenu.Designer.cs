@@ -43,14 +43,10 @@
             this.cboCampo = new System.Windows.Forms.ComboBox();
             this.cboCriterio = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.lblMarca = new System.Windows.Forms.Label();
-            this.lblCategoria = new System.Windows.Forms.Label();
-            this.cboMarca = new System.Windows.Forms.ComboBox();
-            this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnCategorias = new System.Windows.Forms.ToolStripButton();
             this.btnMarcas = new System.Windows.Forms.ToolStripButton();
+            this.btnCategorias = new System.Windows.Forms.ToolStripButton();
+            this.btnAgregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -64,6 +60,7 @@
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -90,12 +87,14 @@
             this.txtFlitrarNombre.Name = "txtFlitrarNombre";
             this.txtFlitrarNombre.Size = new System.Drawing.Size(172, 20);
             this.txtFlitrarNombre.TabIndex = 5;
+            this.txtFlitrarNombre.TextChanged += new System.EventHandler(this.txtFlitrarNombre_TextChanged);
             // 
             // pbxArticulo
             // 
             this.pbxArticulo.Location = new System.Drawing.Point(640, 105);
             this.pbxArticulo.Name = "pbxArticulo";
             this.pbxArticulo.Size = new System.Drawing.Size(276, 272);
+            this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxArticulo.TabIndex = 7;
             this.pbxArticulo.TabStop = false;
             this.pbxArticulo.Click += new System.EventHandler(this.pbxArticulo_Click);
@@ -107,6 +106,7 @@
             this.dgvArticulo.Name = "dgvArticulo";
             this.dgvArticulo.Size = new System.Drawing.Size(590, 272);
             this.dgvArticulo.TabIndex = 8;
+            this.dgvArticulo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulo_CellContentClick);
             // 
             // btnDetalle
             // 
@@ -156,14 +156,17 @@
             // 
             // cboCampo
             // 
+            this.cboCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCampo.FormattingEnabled = true;
             this.cboCampo.Location = new System.Drawing.Point(90, 442);
             this.cboCampo.Name = "cboCampo";
             this.cboCampo.Size = new System.Drawing.Size(143, 21);
             this.cboCampo.TabIndex = 15;
+            this.cboCampo.SelectedIndexChanged += new System.EventHandler(this.cboCampo_SelectedIndexChanged_1);
             // 
             // cboCriterio
             // 
+            this.cboCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCriterio.FormattingEnabled = true;
             this.cboCriterio.Location = new System.Drawing.Point(316, 443);
             this.cboCriterio.Name = "cboCriterio";
@@ -179,40 +182,6 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             // 
-            // lblMarca
-            // 
-            this.lblMarca.AutoSize = true;
-            this.lblMarca.Location = new System.Drawing.Point(364, 66);
-            this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(40, 13);
-            this.lblMarca.TabIndex = 18;
-            this.lblMarca.Text = "Marca:";
-            // 
-            // lblCategoria
-            // 
-            this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(639, 66);
-            this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(55, 13);
-            this.lblCategoria.TabIndex = 19;
-            this.lblCategoria.Text = "Categoria:";
-            // 
-            // cboMarca
-            // 
-            this.cboMarca.FormattingEnabled = true;
-            this.cboMarca.Location = new System.Drawing.Point(410, 62);
-            this.cboMarca.Name = "cboMarca";
-            this.cboMarca.Size = new System.Drawing.Size(143, 21);
-            this.cboMarca.TabIndex = 20;
-            // 
-            // cboCategoria
-            // 
-            this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(700, 62);
-            this.cboCategoria.Name = "cboCategoria";
-            this.cboCategoria.Size = new System.Drawing.Size(143, 21);
-            this.cboCategoria.TabIndex = 21;
-            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -224,14 +193,15 @@
             this.toolStrip1.TabIndex = 22;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // btnAgregar
+            // btnMarcas
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(44, 383);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 23;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnMarcas.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnMarcas.Image = ((System.Drawing.Image)(resources.GetObject("btnMarcas.Image")));
+            this.btnMarcas.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnMarcas.Name = "btnMarcas";
+            this.btnMarcas.Size = new System.Drawing.Size(49, 22);
+            this.btnMarcas.Text = "Marcas";
+            this.btnMarcas.Click += new System.EventHandler(this.btnMarcas_Click_1);
             // 
             // btnCategorias
             // 
@@ -243,15 +213,15 @@
             this.btnCategorias.Text = "Categorias";
             this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
             // 
-            // btnMarcas
+            // btnAgregar
             // 
-            this.btnMarcas.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnMarcas.Image = ((System.Drawing.Image)(resources.GetObject("btnMarcas.Image")));
-            this.btnMarcas.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnMarcas.Name = "btnMarcas";
-            this.btnMarcas.Size = new System.Drawing.Size(49, 22);
-            this.btnMarcas.Text = "Marcas";
-            this.btnMarcas.Click += new System.EventHandler(this.btnMarcas_Click_1);
+            this.btnAgregar.Location = new System.Drawing.Point(44, 383);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 23;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // frmMenuPrincipal
             // 
@@ -260,10 +230,6 @@
             this.ClientSize = new System.Drawing.Size(959, 514);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.cboCategoria);
-            this.Controls.Add(this.cboMarca);
-            this.Controls.Add(this.lblCategoria);
-            this.Controls.Add(this.lblMarca);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.cboCriterio);
             this.Controls.Add(this.cboCampo);
@@ -284,6 +250,7 @@
             this.Name = "frmMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Comercio App";
+            this.Load += new System.EventHandler(this.frmMenuPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).EndInit();
             this.toolStrip1.ResumeLayout(false);
@@ -308,10 +275,6 @@
         private System.Windows.Forms.ComboBox cboCampo;
         private System.Windows.Forms.ComboBox cboCriterio;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Label lblMarca;
-        private System.Windows.Forms.Label lblCategoria;
-        private System.Windows.Forms.ComboBox cboMarca;
-        private System.Windows.Forms.ComboBox cboCategoria;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.ToolStripButton btnMarcas;
