@@ -32,7 +32,7 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.lblCategoria = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).BeginInit();
             this.SuspendLayout();
@@ -76,14 +76,14 @@
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.UseWaitCursor = true;
             // 
-            // comboBox3
+            // cboCategoria
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(81, 16);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(143, 21);
-            this.comboBox3.TabIndex = 29;
-            this.comboBox3.UseWaitCursor = true;
+            this.cboCategoria.FormattingEnabled = true;
+            this.cboCategoria.Location = new System.Drawing.Point(81, 16);
+            this.cboCategoria.Name = "cboCategoria";
+            this.cboCategoria.Size = new System.Drawing.Size(143, 21);
+            this.cboCategoria.TabIndex = 29;
+            this.cboCategoria.UseWaitCursor = true;
             // 
             // lblCategoria
             // 
@@ -104,7 +104,7 @@
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.cboCategoria);
             this.Controls.Add(this.lblCategoria);
             this.MaximumSize = new System.Drawing.Size(531, 374);
             this.MinimumSize = new System.Drawing.Size(531, 374);
@@ -122,7 +122,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cboCategoria;
         private System.Windows.Forms.Label lblCategoria;
     }
 }

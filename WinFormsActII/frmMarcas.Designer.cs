@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cboMarca = new System.Windows.Forms.ComboBox();
             this.lblMarca = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -37,14 +37,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarcas)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox3
+            // cboMarca
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(66, 14);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(143, 21);
-            this.comboBox3.TabIndex = 22;
-            this.comboBox3.UseWaitCursor = true;
+            this.cboMarca.FormattingEnabled = true;
+            this.cboMarca.Location = new System.Drawing.Point(66, 14);
+            this.cboMarca.Name = "cboMarca";
+            this.cboMarca.Size = new System.Drawing.Size(143, 21);
+            this.cboMarca.TabIndex = 22;
+            this.cboMarca.UseWaitCursor = true;
             // 
             // lblMarca
             // 
@@ -104,7 +104,7 @@
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.cboMarca);
             this.Controls.Add(this.lblMarca);
             this.MaximumSize = new System.Drawing.Size(531, 374);
             this.MinimumSize = new System.Drawing.Size(531, 374);
@@ -118,7 +118,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cboMarca;
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEliminar;
