@@ -48,9 +48,9 @@
             this.cboMarca = new System.Windows.Forms.ComboBox();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnMarcas = new System.Windows.Forms.ToolStripButton();
-            this.btnCategorias = new System.Windows.Forms.ToolStripButton();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnCategorias = new System.Windows.Forms.ToolStripButton();
+            this.btnMarcas = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -98,6 +98,7 @@
             this.pbxArticulo.Size = new System.Drawing.Size(276, 272);
             this.pbxArticulo.TabIndex = 7;
             this.pbxArticulo.TabStop = false;
+            this.pbxArticulo.Click += new System.EventHandler(this.pbxArticulo_Click);
             // 
             // dgvArticulo
             // 
@@ -115,6 +116,7 @@
             this.btnDetalle.TabIndex = 9;
             this.btnDetalle.Text = "Ver detalle";
             this.btnDetalle.UseVisualStyleBackColor = true;
+            this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
             // 
             // lblCampo
             // 
@@ -222,14 +224,14 @@
             this.toolStrip1.TabIndex = 22;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // btnMarcas
+            // btnAgregar
             // 
-            this.btnMarcas.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnMarcas.Image = ((System.Drawing.Image)(resources.GetObject("btnMarcas.Image")));
-            this.btnMarcas.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnMarcas.Name = "btnMarcas";
-            this.btnMarcas.Size = new System.Drawing.Size(49, 22);
-            this.btnMarcas.Text = "Marcas";
+            this.btnAgregar.Location = new System.Drawing.Point(44, 383);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 23;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
             // 
             // btnCategorias
             // 
@@ -239,15 +241,17 @@
             this.btnCategorias.Name = "btnCategorias";
             this.btnCategorias.Size = new System.Drawing.Size(67, 22);
             this.btnCategorias.Text = "Categorias";
+            this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
             // 
-            // btnAgregar
+            // btnMarcas
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(44, 383);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 23;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnMarcas.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnMarcas.Image = ((System.Drawing.Image)(resources.GetObject("btnMarcas.Image")));
+            this.btnMarcas.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnMarcas.Name = "btnMarcas";
+            this.btnMarcas.Size = new System.Drawing.Size(49, 22);
+            this.btnMarcas.Text = "Marcas";
+            this.btnMarcas.Click += new System.EventHandler(this.btnMarcas_Click_1);
             // 
             // frmMenuPrincipal
             // 
@@ -309,9 +313,9 @@
         private System.Windows.Forms.ComboBox cboMarca;
         private System.Windows.Forms.ComboBox cboCategoria;
         private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.ToolStripButton btnMarcas;
         private System.Windows.Forms.ToolStripButton btnCategorias;
-        private System.Windows.Forms.Button btnAgregar;
     }
 }
 
