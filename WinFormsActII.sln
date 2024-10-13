@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsActII", "WinFormsActII\WinFormsActII.csproj", "{EB264B16-D97F-4048-B32F-8D337465ED77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dominio", "dominio\dominio.csproj", "{3F2F08E4-F59E-4ABC-BBE8-69012AE6C4E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "negocio", "negocio\negocio.csproj", "{30EECC26-1EA5-4203-A574-F4276C106E13}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB264B16-D97F-4048-B32F-8D337465ED77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB264B16-D97F-4048-B32F-8D337465ED77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB264B16-D97F-4048-B32F-8D337465ED77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB264B16-D97F-4048-B32F-8D337465ED77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F2F08E4-F59E-4ABC-BBE8-69012AE6C4E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F2F08E4-F59E-4ABC-BBE8-69012AE6C4E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F2F08E4-F59E-4ABC-BBE8-69012AE6C4E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F2F08E4-F59E-4ABC-BBE8-69012AE6C4E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30EECC26-1EA5-4203-A574-F4276C106E13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30EECC26-1EA5-4203-A574-F4276C106E13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30EECC26-1EA5-4203-A574-F4276C106E13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30EECC26-1EA5-4203-A574-F4276C106E13}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4870C769-2680-43A5-8C38-C2DE574D1938}
+	EndGlobalSection
+EndGlobal
